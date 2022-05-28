@@ -1,32 +1,22 @@
-import React, { useState } from 'react'
-import './ColourBall.css';
-
-const colours = [
-    {
-        id  : 1,
-        colour : "#D5E8D4" 
-    },
-    {
-        id  : 2,
-        colour : "#FFE6CD" 
-    },
-    {
-        id  : 3,
-        colour : "#6801FF" 
-    },
-    {
-        id  : 4,
-        colour : "#D9E8FB" 
-    },
-    {
-        id  : 5,
-        colour : "#E2D5E7" 
-    }
-  ]
-
+import React, { useEffect, useState } from 'react'
+import './ColourBall.css';  
+ const URL = "https://flip-product-data.herokuapp.com/colours"
 const ColourBall = () => {
-
     const [number , setNumber] = useState("")
+    const [colour , setColour] = useState([])
+
+    const getColours = async () =>{
+        try{
+            const req = await fetch (`${URL}`)
+            const res = await req.json()
+            setColour(res)
+        }catch(err){
+            console.log(err)
+        }
+    }
+    useEffect(()=>{
+        getColours()
+    },[])
 
    
   return (
@@ -35,7 +25,7 @@ const ColourBall = () => {
                  
         </div>
         <div className='colourDiv'> 
-        {colours.map((el)=>{
+        {colour.map((el)=>{
             return( 
                 <div style={{backgroundColor:`${el.colour}`,marginTop:"10px", width:"70px",height:"70px",borderRadius:"50%"}}></div> 
             )
