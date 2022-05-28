@@ -1,0 +1,12 @@
+.bollBox{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around;
+    align-content: space-around;
+}
+.emptyDiv{
+    min-width: 250px;;
+    min-height: 250px;
+    border: 1px solid;
+}
+ 
