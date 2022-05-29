@@ -62,7 +62,7 @@ const ColourBall = () => {
         <div className='colourDiv'> 
         {colour.map((el , i)=>{
             return( 
-                <div className='colourCercul' key={i} style={{backgroundColor:`${el.color}`}}>{el.id}</div> 
+                <div className='colourCercul' key={i} style={{backgroundColor:`${el.color}`}}></div> 
             )
         })}
         </div>
