@@ -30,13 +30,13 @@ const ColourBall = () => {
     if (number > colour.length || number < 1) {
       return alert(`Submit value 1 to ${colour.length}`);
     }
-    let fillColour = colour.filter((e) => e != colour[number - 1]);
+    let fillColour = colour.filter((e) => e !== colour[number - 1]);
     setColour(fillColour);
 
     setEmpty([...empty, colour[number - 1]]);
   };
   const handleClick = (key, e) => {
-    let newAraay = empty.filter((e) => key != e.key);
+    let newAraay = empty.filter((e) => key !== e.key);
     setEmpty(newAraay);
     let sortedarray = [...colour, e];
     sortedarray = sortedarray.sort((a, b) => a.id - b.id);
