@@ -1,16 +1,20 @@
+ 
 .bollBox{
     display: flex;
     flex-direction: row; 
     justify-content: space-around;
-    align-content: space-around;
+    align-content: space-around; 
 }
 .emptyDiv{
-    min-width: 250px;;
-    min-height: 250px;
-    border: 1px solid;
+    min-width: 200px;;
+    height: 450px;
+    border: 3px solid;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
 }
 .colourCercul{
-margin-top: 10px;
+margin: 10px auto;
 width: 70px;
 height: 70px;
 border-radius: 50%; 
@@ -20,6 +24,7 @@ border: 1px solid;
 margin-top: 150px;
 display: flex;
 flex-direction: column;
+width: 100px;
 }
  
    
