@@ -34,6 +34,7 @@ const ColourBall = () => {
     setColour(fillColour);
 
     setEmpty([...empty, colour[number - 1]]);
+    setNumber("")
   };
   const handleClick = (key, e) => {
     let newAraay = empty.filter((e) => key !== e.key);
@@ -85,10 +86,10 @@ const ColourBall = () => {
           />
           <br />
           <button
-            style={{ minHeight: "50px", Width: "150px" }}
+            style={{ minHeight: "50px", Width: "150px",fontWeight:"600" }}
             onClick={submitHendel}
           >
-            soote
+            shoot
           </button>
         </div>
       </div>

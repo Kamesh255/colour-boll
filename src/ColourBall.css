@@ -11,7 +11,7 @@
     border: 3px solid;
     border-radius: 5px;
     align-items: center;
-    align-content: center;
+    align-content: center; 
 }
 .colourCercul{
 margin: 10px auto;
@@ -25,6 +25,11 @@ margin-top: 150px;
 display: flex;
 flex-direction: column;
 width: 100px;
+}
+.colourCercul:hover{
+    width: 75px;
+   height: 75px;  
+   box-shadow: rgb(116, 112, 112) 5px 5px 10px 3px ;
 }
  
    
