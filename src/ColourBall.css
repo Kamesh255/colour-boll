@@ -9,4 +9,17 @@
     min-height: 250px;
     border: 1px solid;
 }
+.colourCercul{
+margin-top: 10px;
+width: 70px;
+height: 70px;
+border-radius: 50%; 
+border: 1px solid;
+}
+.btnDiv{
+margin-top: 150px;
+display: flex;
+flex-direction: column;
+}
  
+   

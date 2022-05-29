@@ -1,40 +1,78 @@
 import React, { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from "uuid";
 import './ColourBall.css';  
- const URL = "https://flip-product-data.herokuapp.com/colours"
+
+ 
 const ColourBall = () => {
     const [number , setNumber] = useState("")
     const [colour , setColour] = useState([])
+    const [empty, setEmpty] = useState([])
 
-    const getColours = async () =>{
-        try{
-            const req = await fetch (`${URL}`)
-            const res = await req.json()
-            setColour(res)
-        }catch(err){
-            console.log(err)
+    const getColours = () =>{
+        var colors = [];
+        function randomColor() {
+          var letters = "0123456789ABCDEF";
+          var color = "#";
+          for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          } 
+          return color;
         }
+        for (let j = 1; j <= 5; j++) {
+          colors = [
+            ...colors,
+            { id: j, color: randomColor(), key: uuidv4() },
+          ];
+        } 
+       setColour(colors);
+         
     }
     useEffect(()=>{
-        getColours()
+      getColours()
     },[])
 
+ 
+ 
+    const submitHendel =(e)=>{  
+         if(number > colour.length || number < 1){
+             return alert (`Submit value 1 to ${colour.length}`)
+         }
+         let fillColour = colour.filter((e)=> e != colour[number -1])
+         setColour(fillColour)
+
+         setEmpty([...empty, colour[number-1]])
+    }  
+    const handleClick = (key, e) => {
+        let newAraay = empty.filter((e) => key != e.key);
+        setEmpty(newAraay); 
+        let sortedarray = [...colour, e];
+        sortedarray = sortedarray.sort((a, b) => a.id - b.id);
+        setColour(sortedarray);
+      };
    
   return (
     <div className='bollBox'>
         <div className='emptyDiv'>
-                 
+                 {empty.map((el)=>{
+                     return(
+                       <div className='colourCercul' style={{backgroundColor:`${el.color}`}} onClick={() => handleClick(el.key, el) }></div>  
+                     )
+                 })}
         </div>
         <div className='colourDiv'> 
-        {colour.map((el)=>{
+        {colour.map((el , i)=>{
             return( 
-                <div style={{backgroundColor:`${el.colour}`,marginTop:"10px", width:"70px",height:"70px",borderRadius:"50%"}}></div> 
+                <div className='colourCercul' key={i} style={{backgroundColor:`${el.color}`}}>{el.id}</div> 
             )
         })}
         </div>
-        <div className='btnDiv'>
-            <div style={{marginTop:"150px", display:"flex",flexDirection:"column",}}> 
-                <input style={{minHeight:"50px",Width:"100px",textAlign:"center",fontWeight:"600"}} type="text" placeholder='Type your number' onChange={(e)=> setNumber(e.target.value)}/>
-                <button style={{minHeight:"50px",Width:"100px"}} >Shoot</button>
+        <div >
+            <div className='btnDiv'> 
+               
+                <input style={{minHeight:"50px",Width:"200px",textAlign:"center",fontWeight:"600"}} type="text" placeholder='Type your number' value={number} onChange={(e)=> setNumber(e.target.value)}/>
+                 <br />
+                <button style={{minHeight:"50px",Width:"200px"}} onClick={submitHendel}>soote</button>
+        
             </div>
         </div>
     </div>

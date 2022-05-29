@@ -2,23 +2,23 @@
     "colours":[
         {
             "id"  : 1,
-            "colour" : "#D5E8D4" 
+            "colour" : "16777215" 
         },
         {
             "id"  : 2,
-            "colour" : "#FFE6CD" 
+            "colour" : "16770211" 
         },
         {
             "id"  : 3,
-            "colour" : "#6801FF" 
+            "colour" : "16767213" 
         },
         {
             "id"  : 4,
-            "colour" : "#D9E8FB" 
+            "colour" : "16777317" 
         },
         {
             "id"  : 5,
-            "colour" : "#E2D5E7" 
+            "colour" : "12777219" 
         }
     ]
 }
